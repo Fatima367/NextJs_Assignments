@@ -15,9 +15,11 @@ export default function Home() {
         <h1 className="font-bold"> Assignment </h1>
         <br />
         <br />
+       
         <h1 className="text-center font-serif font-bold text-7xl bg-white">
           <i> Hello World! </i>
         </h1>
+       
       </body>
     </>
   );
