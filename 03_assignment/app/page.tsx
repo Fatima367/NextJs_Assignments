@@ -13,9 +13,8 @@ import Card from "./components/card";
 export default function Home() {
   const route = useRouter();
   return (
-    <>
       <div>
-        <header className="bg-blue-600 font-bold text-white text-lg p-4 text-end">
+        <header className="bg-blue-600 font-bold text-white text-lg p-2 text-end">
           <div className=" justify-between items-center space-x-3 ">
             <Link href={"./navbar"} className="underline">
               {" "}
@@ -60,6 +59,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
   );
 }

@@ -11,7 +11,7 @@ function Contact() {
           <h1 className="text-2xl font-bold">This is Contact Page</h1>
           <br />
           <br />
-          <div className="ml-2 flex justify-between items-center mr-2 mb-4 ">
+          <div className="ml-2 flex justify-between items-center mr-2 mb-4">
             <button
               onClick={() => route.push("/about")}
               className=" bg-white p-2 rounded-lg ring-2 ring-gray-700 shadow-lg"
