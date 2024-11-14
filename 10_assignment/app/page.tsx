@@ -1,5 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+import Navbar from "./navbar/page";
+import { TbEdit } from "react-icons/tb";
+import { MdDelete } from "react-icons/md";
+import Footer from "./footer/page";
 
 // Book type
 type Book = {
@@ -17,10 +21,9 @@ export default function Page() {
   const [author, setAuthor] = useState("");
   const [genre, setGenre] = useState("");
   const [available, setAvailable] = useState("");
-  const [image, setImage] = useState<File | null> (null);
+  const [image, setImage] = useState<File | null>(null);
   const [editId, setEditId] = useState<string | null>(null);
-  const [currentImage, setCurrentImage] = useState<string>(""); 
-
+  const [currentImage, setCurrentImage] = useState<string>("");
 
   // Fetch books from the API
   useEffect(() => {
@@ -85,7 +88,6 @@ export default function Page() {
     }
   };
 
-
   const deleteBook = async (id: string) => {
     await fetch(`/api/books/${id}`, {
       method: "DELETE",
@@ -120,109 +122,138 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center text-blue-800 mb-8">
-        Online Bookstore
-      </h1>
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <div className="min-h-screen p-6 font-serif bg-gradient-to-r from-rose-50 via-white to-rose-50">
+      <Navbar />
 
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-          Book Collection
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="max-w-5xl mx-auto bg-transparent p-8 rounded-lg mt-6">
+        <h1 className="text-4xl font-bold text-center text-red-900 mb-10">
+          Books Collection
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {books.map((book) => (
             <div
               key={book.id}
-              className="bg-white border border-gray-200 p-4 rounded-lg shadow-sm flex flex-col items-start"
+              className="bg-white border border-gray-200 p-6 rounded-lg shadow-lg
+              hover:shadow-xl transition hover:scale-105"
             >
-              <img
-                src={book.image || "https://via.placeholder.com/150"}
-                alt={book.title}
-                className="h-40 w-full object-cover rounded mb-4"
-              />
-              <h3 className="text-lg font-bold text-gray-800">{book.title}</h3>
-              <p className="text-sm text-gray-600">by {book.author}</p>
-              <p className="text-sm text-gray-500">Genre: {book.genre}</p>
+              <div className="h-52 w-full">
+                <img
+                  src={book.image || "https://via.placeholder.com/150"}
+                  alt={book.title}
+                  className="h-52 w-auto object-cover rounded mb-4 ml-auto mr-auto hover:w-full 
+                  hover:transition -mt-3"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-1 mt-4">
+                {book.title}
+              </h3>
+              <p className="text-lg text-gray-600">by {book.author}</p>
+              <p className="text-md text-gray-500">Genre: {book.genre}</p>
               <p
-                className={`text-sm font-semibold mt-2 ${
+                className={`text-md font-semibold mt-2 ${
                   book.available ? "text-green-600" : "text-red-600"
                 }`}
               >
-                {book.available ? "Available" : "Not Available"}
+                {book.available ? "Available Online" : "Not Available Online"}
               </p>
-              <div className="mt-4 flex gap-4">
-                <button
-                  onClick={() => deleteBook(book.id)}
-                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                >
-                  Delete
-                </button>
+              <div className="mt-4 flex justify-between -mb-3">
                 <button
                   onClick={() => handleEditClick(book)}
-                  className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                  className="text-blue-600 px-1 py-2 rounded hover:bg-blue-600 hover:text-white"
                 >
-                  Edit
+                  <TbEdit className="w-7 h-7" />
+                </button>
+                <button
+                  onClick={() => deleteBook(book.id)}
+                  className="text-red-500 px-1 py-2 rounded hover:bg-red-600 hover:text-white"
+                >
+                  <MdDelete className="w-7 h-7" />
                 </button>
               </div>
             </div>
           ))}
         </div>
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">
-          {editId ? "Edit Book" : "Add a Book"}
-        </h2>
-        <div className="flex gap-4 mb-6">
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Title"
-            className="border border-gray-300 p-2 rounded w-1/2"
-          />
-          <input
-            type="text"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-            placeholder="Author"
-            className="border border-gray-300 p-2 rounded w-1/2"
-          />
-          <input
-            type="text"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
-            placeholder="Genre"
-            className="border border-gray-300 p-2 rounded w-1/2"
-          />
-          <input
-            type="text"
-            value={available}
-            onChange={(e) => setAvailable(e.target.value)}
-            placeholder="Available (true/false)"
-            className="border border-gray-300 p-2 rounded w-1/2"
-          />
-          {currentImage && editId && (
-            <img src={currentImage} alt="Current Book Cover" className="w-20 h-20 rounded" />
-          )}
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            className="border border-gray-300 p-2 rounded w-1/2"
-          />
-          <button
-            onClick={() => {
-              editId ? editBook(editId) : addBook();
-            }}
-            className="bg-blue-600 text-white p-2 rounded font-semibold hover:bg-blue-700"
-          >
-            {editId ? "Update Book" : "Add Book"}
-          </button>
-          {editId && (
-            <button onClick={resetForm} className="bg-gray-400 text-white p-2 rounded font-semibold hover:bg-gray-500">
-              Cancel Edit
+
+        <div className="mt-10">
+          <h2 className="text-2xl font-semibold text-red-900 mb-6">
+            {editId ? "Edit Book" : "Add a New Book"}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+              <label className="block text-gray-700 mb-2">Title</label>
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Book Title"
+                className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Author</label>
+              <input
+                type="text"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                placeholder="Author Name"
+                className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Genre</label>
+              <input
+                type="text"
+                value={genre}
+                onChange={(e) => setGenre(e.target.value)}
+                placeholder="Genre"
+                className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Availability</label>
+              <select
+                value={available}
+                onChange={(e) => setAvailable(e.target.value)}
+                className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-500"
+              >
+                <option value="">Select</option>
+                <option value="true">Available Online</option>
+                <option value="false">Not Available Online</option>
+              </select>
+            </div>
+            <div className="md:col-span-2 lg:col-span-4">
+              <label className="block text-gray-700 mb-2">
+                Book Cover Image
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                className="bg-white border border-gray-300 p-2 rounded w-full focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <div className="mt-6 flex gap-4">
+            <button
+              onClick={() => (editId ? editBook(editId) : addBook())}
+              className="bg-red-900 text-white px-6 py-2 rounded font-semibold hover:bg-red-800 transition"
+            >
+              {editId ? "Update Book" : "Add Book"}
             </button>
-          )}
+            {editId && (
+              <button
+                onClick={resetForm}
+                className="bg-gray-400 text-white px-6 py-2 rounded font-semibold hover:bg-gray-500 transition"
+              >
+                Cancel
+              </button>
+            )}
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

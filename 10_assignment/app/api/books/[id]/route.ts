@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { addBooks, deleteBooks, getById, updateBooks } from "../route";
+import { deleteBooks, getById, updateBooks } from "../route";
 
 export async function GET(req: Request) {
   try {
