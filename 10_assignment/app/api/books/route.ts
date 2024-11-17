@@ -12,43 +12,43 @@ type Books = {
 let books: Books[] = [
   {
     id: "1",
-    title: "Harry Potter",
-    author: "J.K Rowling",
-    genre: "Mytery",
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    genre: "Classic, Romance, Literary Fiction",
     available: true,
-    image: "../images/img.jpg",
+    image: "../images/img2.jpg",
   },
   {
     id: "2",
-    title: "Harry Potter 2",
-    author: "J.K Rowling",
-    genre: "Mytery",
+    title: "The Picture of Dorian Gray",
+    author: "Oscar Wilde",
+    genre: "Gothic Fiction, Philosophical Fiction",
     available: true,
-    image: "../images/img.jpg",
+    image: "../images/img4.jpg",
   },
   {
     id: "3",
-    title: "Harry Potter 3",
-    author: "J.K Rowling",
-    genre: "Mytery",
-    available: true,
-    image: "../images/img.jpg",
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    genre: "Classic, Literary Fiction, Tragedy",
+    available: false,
+    image: "../images/img3.jpg",
   },
   {
     id: "4",
-    title: "Harry Potter 4",
-    author: "J.K Rowling",
-    genre: "Mytery",
-    available: true,
+    title: "Harry Potter and the Sorcerer's Stone",
+    author: "J.K. Rowling",
+    genre: "Fantasy, Young Adult",
+    available: false,
     image: "../images/img.jpg",
   },
   {
     id: "5",
-    title: "Harry Potter 5",
-    author: "J.K Rowling",
-    genre: "Mytery",
+    title: "The Odyssey",
+    author: "Homer",
+    genre: "Epic Poetry, Classical Literature",
     available: true,
-    image: "../images/img.jpg",
+    image: "../images/img5.jpg",
   },
 ];
 
@@ -89,7 +89,7 @@ export function getById(id: string) {
   return books.find((book) => book.id === id);
 }
 
-export async function GET(req: Request, res: Response,) {
+export async function GET(req: Request, res: Response) {
   try {
     const books = getBooks();
     return NextResponse.json({ message: "OK", books }, { status: 200 });
@@ -98,11 +98,10 @@ export async function GET(req: Request, res: Response,) {
       { messaage: "Error, books not found" },
       { status: 500 }
     );
-  };
-};
+  }
+}
 
-export async function POST(req: Request, res: Response,) {
-
+export async function POST(req: Request, res: Response) {
   try {
     const { title, author, genre, available, image } = await req.json();
 

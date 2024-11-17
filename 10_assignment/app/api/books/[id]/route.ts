@@ -16,8 +16,8 @@ export async function GET(req: Request) {
       { messaage: "Error, book not found", error },
       { status: 500 }
     );
-  };
-};  
+  }
+}
 
 export async function PUT(req: Request) {
   try {
@@ -31,19 +31,19 @@ export async function PUT(req: Request) {
       { messaage: "Error, book not found", error },
       { status: 500 }
     );
-  };
-};
+  }
+}
 
 export async function DELETE(req: Request) {
-    try {
-        const id = req.url.split("books/")[1];
-        deleteBooks(id);
-    
-        return NextResponse.json({ message: "OK" }, { status: 200 });
-      } catch (error) {
-        return NextResponse.json(
-          { messaage: "Error, book not found", error },
-          { status: 500 }
-        );
-      };
-};
+  try {
+    const id = req.url.split("books/")[1];
+    deleteBooks(id);
+
+    return NextResponse.json({ message: "OK" }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { messaage: "Error, book not found", error },
+      { status: 500 }
+    );
+  }
+}

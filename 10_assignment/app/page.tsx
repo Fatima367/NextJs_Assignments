@@ -43,7 +43,7 @@ export default function Page() {
         author,
         genre,
         available: available === "true", // Convert to boolean
-        image: "", // Placeholder; this would need actual file upload handling
+        image: currentImage, // Use the preview URL
       };
       const response = await fetch("/api/books", {
         method: "POST",
@@ -112,22 +112,25 @@ export default function Page() {
     setAvailable("");
     setImage(null);
     setEditId(null);
-    setCurrentImage("");
+    setCurrentImage(""); // Reset the image preview
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
+      const file = e.target.files[0];
+      setImage(file);
+      setCurrentImage(URL.createObjectURL(file)); // Generate a preview URL
     }
   };
 
   return (
-    <div className="min-h-screen p-6 font-serif bg-gradient-to-r from-rose-50 via-white to-rose-50">
+    <div className="min-h-screen p-6 font-serif bg-gradient-to-r from-rose-50 via-white 
+    to-rose-50">
       <Navbar />
 
       <div className="max-w-5xl mx-auto bg-transparent p-8 rounded-lg mt-6">
         <h1 className="text-4xl font-bold text-center text-red-900 mb-10">
-          Books Collection
+          Book Collection
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -141,8 +144,8 @@ export default function Page() {
                 <img
                   src={book.image || "https://via.placeholder.com/150"}
                   alt={book.title}
-                  className="h-52 w-auto object-cover rounded mb-4 ml-auto mr-auto hover:w-full 
-                  hover:transition -mt-3"
+                  className="h-52 w-36 object-cover rounded mb-4 ml-auto mr-auto hover:w-full 
+                  transition-all duration-500 ease-in-out -mt-3"
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-1 mt-4">
@@ -160,13 +163,15 @@ export default function Page() {
               <div className="mt-4 flex justify-between -mb-3">
                 <button
                   onClick={() => handleEditClick(book)}
-                  className="text-blue-600 px-1 py-2 rounded hover:bg-blue-600 hover:text-white"
+                  className="text-blue-600 px-1 py-2 rounded hover:bg-blue-600 
+                  hover:text-white"
                 >
                   <TbEdit className="w-7 h-7" />
                 </button>
                 <button
                   onClick={() => deleteBook(book.id)}
-                  className="text-red-500 px-1 py-2 rounded hover:bg-red-600 hover:text-white"
+                  className="text-red-500 px-1 py-2 rounded hover:bg-red-600 
+                  hover:text-white"
                 >
                   <MdDelete className="w-7 h-7" />
                 </button>
@@ -187,7 +192,8 @@ export default function Page() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Book Title"
-                className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-500"
+                className="border border-gray-300 p-2 rounded w-full focus:outline-none 
+                focus:border-red-500"
               />
             </div>
             <div>
@@ -197,7 +203,8 @@ export default function Page() {
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
                 placeholder="Author Name"
-                className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-500"
+                className="border border-gray-300 p-2 rounded w-full focus:outline-none 
+                focus:border-red-500"
               />
             </div>
             <div>
@@ -207,7 +214,8 @@ export default function Page() {
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
                 placeholder="Genre"
-                className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-500"
+                className="border border-gray-300 p-2 rounded w-full focus:outline-none 
+                focus:border-red-500"
               />
             </div>
             <div>
@@ -215,7 +223,8 @@ export default function Page() {
               <select
                 value={available}
                 onChange={(e) => setAvailable(e.target.value)}
-                className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-500"
+                className="border border-gray-300 p-2 rounded w-full focus:outline-none 
+                focus:border-red-500"
               >
                 <option value="">Select</option>
                 <option value="true">Available Online</option>
@@ -230,7 +239,8 @@ export default function Page() {
                 type="file"
                 accept="image/*"
                 onChange={handleFileChange}
-                className="bg-white border border-gray-300 p-2 rounded w-full focus:outline-none"
+                className="bg-white border border-gray-300 p-2 rounded w-full 
+                focus:outline-none"
               />
             </div>
           </div>
@@ -238,14 +248,16 @@ export default function Page() {
           <div className="mt-6 flex gap-4">
             <button
               onClick={() => (editId ? editBook(editId) : addBook())}
-              className="bg-red-900 text-white px-6 py-2 rounded font-semibold hover:bg-red-800 transition"
+              className="bg-red-900 text-white px-6 py-2 rounded font-semibold 
+              hover:bg-red-800 transition"
             >
               {editId ? "Update Book" : "Add Book"}
             </button>
             {editId && (
               <button
                 onClick={resetForm}
-                className="bg-gray-400 text-white px-6 py-2 rounded font-semibold hover:bg-gray-500 transition"
+                className="bg-gray-400 text-white px-6 py-2 rounded font-semibold 
+                hover:bg-gray-500 transition"
               >
                 Cancel
               </button>
