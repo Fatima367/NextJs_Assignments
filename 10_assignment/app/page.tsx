@@ -180,7 +180,7 @@ export default function Page() {
           ))}
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10" id="addbook">
           <h2 className="text-2xl font-semibold text-red-900 mb-6">
             {editId ? "Edit Book" : "Add a New Book"}
           </h2>

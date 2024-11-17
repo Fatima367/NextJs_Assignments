@@ -20,11 +20,11 @@ let books: Books[] = [
   },
   {
     id: "2",
-    title: "The Picture of Dorian Gray",
-    author: "Oscar Wilde",
-    genre: "Gothic Fiction, Philosophical Fiction",
-    available: true,
-    image: "../images/img4.jpg",
+    title: "Harry Potter and the Sorcerer's Stone",
+    author: "J.K. Rowling",
+    genre: "Fantasy, Young Adult",
+    available: false,
+    image: "../images/img.jpg",
   },
   {
     id: "3",
@@ -36,11 +36,11 @@ let books: Books[] = [
   },
   {
     id: "4",
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: "J.K. Rowling",
-    genre: "Fantasy, Young Adult",
-    available: false,
-    image: "../images/img.jpg",
+    title: "The Picture of Dorian Gray",
+    author: "Oscar Wilde",
+    genre: "Gothic Fiction, Philosophical Fiction",
+    available: true,
+    image: "../images/img4.jpg",
   },
   {
     id: "5",

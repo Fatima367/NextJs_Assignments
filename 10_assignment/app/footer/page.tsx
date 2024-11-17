@@ -19,7 +19,7 @@ export default function Footer() {
       <br />
       <br />
       <div className="flex items-center justify-center text-white -mt-9">
-        <p>&copy; All Rights Reserved</p>
+        <p>&copy; 2024 | All Rights Reserved</p>
       </div>
     </div>
   );
