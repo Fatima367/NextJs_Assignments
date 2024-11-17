@@ -4,6 +4,7 @@ import Navbar from "./navbar/page";
 import { TbEdit } from "react-icons/tb";
 import { MdDelete } from "react-icons/md";
 import Footer from "./footer/page";
+import Image from "next/image";
 
 // Book type
 type Book = {
@@ -141,7 +142,7 @@ export default function Page() {
               hover:shadow-xl transition hover:scale-105"
             >
               <div className="h-52 w-full">
-                <img
+                <Image
                   src={book.image || "https://via.placeholder.com/150"}
                   alt={book.title}
                   className="h-52 w-36 object-cover rounded mb-4 ml-auto mr-auto hover:w-full 
