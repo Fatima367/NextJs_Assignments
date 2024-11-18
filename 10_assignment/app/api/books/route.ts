@@ -85,10 +85,6 @@ export const updateBooks = (
   }
 };
 
-export async function getById(id: string) {
-  return books.find((book) => book.id === id);
-}
-
 export async function GET(req: Request, res: Response) {
   try {
     const books = getBooks();

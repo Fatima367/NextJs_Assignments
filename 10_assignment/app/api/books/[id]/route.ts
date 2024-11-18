@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { deleteBooks, getById, updateBooks } from "../route";
+import { deleteBooks, updateBooks } from "../route";
 
 export async function GET(req: Request) {
   try {
     const id = req.url.split("books/")[1];
     console.log(id);
-    const book = getById(id);
+    const book = (id);
 
     if (!book) {
       return NextResponse.json({ message: "ERROR" }, { status: 404 });

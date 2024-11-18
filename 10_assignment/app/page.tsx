@@ -142,7 +142,7 @@ export default function Page() {
               hover:shadow-xl transition hover:scale-105"
             >
               <div className="h-52 w-full">
-                <Image
+                <img
                   src={book.image || "https://via.placeholder.com/150"}
                   alt={book.title}
                   className="h-52 w-36 object-cover rounded mb-4 ml-auto mr-auto hover:w-full 
