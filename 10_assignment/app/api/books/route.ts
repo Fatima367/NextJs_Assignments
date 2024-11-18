@@ -85,7 +85,7 @@ export const updateBooks = (
   }
 };
 
-export function getById(id: string) {
+export async function getById(id: string) {
   return books.find((book) => book.id === id);
 }
 
