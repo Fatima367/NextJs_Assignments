@@ -36,11 +36,11 @@ let books: Books[] = [
   },
   {
     id: "4",
-    title: "The Picture of Dorian Gray",
-    author: "Oscar Wilde",
-    genre: "Gothic Fiction, Philosophical Fiction",
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    genre: "Fiction, Historical Fiction, Classic",
     available: true,
-    image: "../images/img4.jpg",
+    image: "../images/img6.jpg",
   },
   {
     id: "5",

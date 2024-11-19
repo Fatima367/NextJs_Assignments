@@ -105,7 +105,7 @@ export default function Page() {
     setCurrentImage(book.image);
     setImage(null); // Clear file input value for security
 
-    const formElement = document.getElementById("addbook");
+  const formElement = document.getElementById("addbook");
   formElement?.scrollIntoView({ behavior: "smooth" });
   };
 

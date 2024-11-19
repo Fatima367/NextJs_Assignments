@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="w-screen bg-red-900 h-40 -ml-10 -mb-10 sm:-mr-10 -mr-10">
+    <footer className="w-screen bg-red-900 h-40 -ml-10 -mb-10">
       <div className="flex flex-row space-x-10 items-center justify-center text-white mt-5">
         <Link href="/">
           <p className="border-b-2 border-b-white hover:border-b-0 transition 
@@ -21,6 +21,6 @@ export default function Footer() {
       <div className="flex items-center justify-center text-white -mt-9">
         <p>&copy; 2024 | All Rights Reserved</p>
       </div>
-    </div>
+    </footer>
   );
 }
