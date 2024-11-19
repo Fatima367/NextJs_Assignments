@@ -104,6 +104,9 @@ export default function Page() {
     setAvailable(book.available.toString());
     setCurrentImage(book.image);
     setImage(null); // Clear file input value for security
+
+    const formElement = document.getElementById("addbook");
+  formElement?.scrollIntoView({ behavior: "smooth" });
   };
 
   const resetForm = () => {
