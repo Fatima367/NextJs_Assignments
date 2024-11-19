@@ -10,7 +10,7 @@ export default function Navbar() {
 
         <div
           className="bg-white px-3 py-2 sm:px-8 sm:py-2 rounded-full shadow-lg border border-red-300 
-        flex gap-4"
+        flex gap-4 mr-5 sm:mr-0"
         >
           <nav className="flex gap-4 sm:gap-7">
             <Link
