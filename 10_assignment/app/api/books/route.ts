@@ -113,7 +113,7 @@ export async function POST(req: Request, res: Response) {
     return NextResponse.json({ message: "OK", book }, { status: 201 });
   } catch (error) {
     return NextResponse.json(
-      { messaage: "Error, books not found" },
+      { messaage: "Error, something went wrong" },
       { status: 500 }
     );
   }

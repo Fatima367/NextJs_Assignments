@@ -28,7 +28,7 @@ export async function PUT(req: Request) {
     return NextResponse.json({ message: "OK" }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
-      { messaage: "Error, book not found", error },
+      { messaage: "Error, something went wrong", error },
       { status: 500 }
     );
   }
@@ -42,7 +42,7 @@ export async function DELETE(req: Request) {
     return NextResponse.json({ message: "OK" }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
-      { messaage: "Error, book not found", error },
+      { messaage: "Error, something went wrong", error },
       { status: 500 }
     );
   }
