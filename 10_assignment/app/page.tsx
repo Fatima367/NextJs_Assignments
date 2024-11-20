@@ -129,7 +129,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen p-6 font-serif bg-gradient-to-r from-rose-50 via-white 
-    to-rose-50">
+    to-rose-50 w-screen">
       <Navbar />
 
       <div className="max-w-5xl mx-auto bg-transparent p-8 rounded-lg mt-6">
