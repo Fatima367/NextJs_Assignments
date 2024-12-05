@@ -15,7 +15,7 @@ const LoginForm = () => {
   return (
     <div
       className="rounded-xl border bg-card text-card-foreground shadow w-5/12
-        ml-auto mr-auto mb-6 mt-6 bg-white text-black ring-2 ring-white ring-offset-2 
+        ml-auto mr-auto mb-6 mt-3 bg-white text-black ring-2 ring-white ring-offset-2 
         ring-offset-purple-500"
     >
       <div className="flex flex-col space-y-1.5 p-6">

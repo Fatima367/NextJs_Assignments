@@ -39,7 +39,6 @@ export default function SignInPage() {
       >
        Signin with GitHub <FaGithub className="h-5 w-5 ml-2"/>
       </button>
-      {gitMessage && <div className="mt-4 text-blue-600">{gitMessage}</div>}
 
 
       <button
@@ -49,8 +48,11 @@ export default function SignInPage() {
       >
        Signin with Google <FaGoogle className="h-4 w-4 ml-2"/>
       </button>
-      {googleMessage && <div className="mt-4 text-red-600">{googleMessage}</div>}
       </div>
+
+      {gitMessage && <div className="mt-4 text-blue-600">{gitMessage}</div>}
+      {googleMessage && <div className="mt-4 text-red-600">{googleMessage}</div>}
+
     </div>
   );
 }

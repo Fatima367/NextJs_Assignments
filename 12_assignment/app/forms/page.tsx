@@ -11,7 +11,7 @@ export default function AuthPage() {
       className="bg-[url('/images/bgimg.png')] bg-cover min-h-screen flex flex-col 
         justify-center items-center text-white font-serif w-screen"
     >
-      <div className="mb-2 mt-5">
+      <div className="mb-2 mt-2">
         <button
           onClick={() => setIsLoggedIn(!isLoggedIn)}
           className="font-bold border-none"
