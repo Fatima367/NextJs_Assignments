@@ -1,22 +1,27 @@
-'use client';
+"use client";
 import LoginForm from "@/components/pages/LoginForm";
 import SignupForm from "@/components/pages/SignupForm";
 import { useState } from "react";
 
-
 export default function AuthPage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-    const [ isLoggedIn, setIsLoggedIn] = useState(true);
-
-    return(
-        <div className="min-h-screen flex flex-col justify-center items-center">
-            <div className="mb-2 mt-5">
-                <button onClick={() => setIsLoggedIn(!isLoggedIn)}
-                    className="bg-transparent text-black font-bold border-none">
-                    {isLoggedIn? "Need an account? Signup." : "Already have an account? Login"}
-                </button>
-            </div>
-            {isLoggedIn ? <LoginForm /> : <SignupForm />}
-        </div>
-    )
-};
+  return (
+    <div
+      className="bg-[url('/images/bgimg.png')] bg-cover min-h-screen flex flex-col 
+        justify-center items-center text-white font-serif w-screen"
+    >
+      <div className="mb-2 mt-5">
+        <button
+          onClick={() => setIsLoggedIn(!isLoggedIn)}
+          className="font-bold border-none"
+        >
+          {isLoggedIn
+            ? "Need an account? Signup."
+            : "Already have an account? Login"}
+        </button>
+      </div>
+      {isLoggedIn ? <LoginForm /> : <SignupForm />}
+    </div>
+  );
+}
