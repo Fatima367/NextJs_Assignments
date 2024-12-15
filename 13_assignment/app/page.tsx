@@ -1,3 +1,24 @@
+import ClerkUI from './clerk/page'
+
+export default function Home() {
+  return(
+    <div className='w-full min-h-screen font-serif'>
+     <ClerkUI />
+     </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // 'use client';
 // import { Button } from "@/components/ui/button";
 // import Link from "next/link";
@@ -21,22 +42,3 @@
 //     </div>
 //   );
 // }
-
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
-import ClerkUI from './clerk/page'
-import Nav from './navbar/page'
-
-export default function Home() {
-  return(
-    <div className='w-full min-h-screen font-serif'>
-      <Nav/>
-     <ClerkUI />
-     </div>
-  )
-}
