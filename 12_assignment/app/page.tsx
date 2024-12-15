@@ -22,7 +22,7 @@ export default async function Login() {
             <p className="text-white text-2xl mt-2">Sigin to continue:</p>
             <Link href="/login-signup">
               <button
-                className="flex p-4 bg-white text-purple-900 font-bold rounded-full mt-5
+                className="flex px-6 py-2 bg-white text-purple-900 font-bold rounded-full mt-5
             space-x-4 text-xl ring-2 ring-white ring-offset-2 ring-offset-purple-500 
             items-center justify-center hover:bg-gray-200"
               >
