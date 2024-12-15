@@ -16,6 +16,10 @@ export default async function Login() {
         ) : (
           <div className="bg-[url('/images/bgimg.png')] bg-cover flex flex-col items-center justify-center w-screen min-h-screen">
             <h1 className="text-7xl text-white font-bold"> Welcome</h1>
+            <h3 className="text-3xl text-white font-bold mt-4">
+              To the appliction made with Auth!
+            </h3>
+            <p className="text-white text-2xl mt-2">Sigin to continue:</p>
             <Link href="/login-signup">
               <button
                 className="flex p-4 bg-white text-purple-900 font-bold rounded-full mt-5
