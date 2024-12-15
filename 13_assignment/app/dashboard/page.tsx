@@ -5,11 +5,8 @@ export default function Dashboard() {
     return(
         <ClerkProvider>
         <SignedIn>
-        <div className="bg-[url('/images/bgimg.png')] w-full min-h-screen bg-cover">
-        <Nav/>
-         <h1 className="text-7xl text-white font-bold">DB</h1>
-        </div>
+          <div className="text-7xl bg-white">You are signed in!!!</div>
         </SignedIn>
-        </ClerkProvider>
+      </ClerkProvider>
     )
 };
