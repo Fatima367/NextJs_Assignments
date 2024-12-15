@@ -1,23 +1,12 @@
-import ClerkUI from './clerk/page'
+import ClerkUI from "./clerk/page";
 
 export default function Home() {
-  return(
-    <div className='w-full min-h-screen font-serif'>
-     <ClerkUI />
-     </div>
-  )
+  return (
+    <div className="w-full min-h-screen font-serif">
+      <ClerkUI />
+    </div>
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // 'use client';
 // import { Button } from "@/components/ui/button";
