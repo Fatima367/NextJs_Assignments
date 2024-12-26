@@ -1,3 +1,4 @@
+'use client'
 import ClerkUI from "./clerk/page";
 
 export default function Home() {
