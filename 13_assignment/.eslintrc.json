@@ -6,6 +6,10 @@
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off",
     "@typescript-eslint/no-empty-object-type" : "off",
+    "no-console": "off",
+    "no-unused-vars": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-debugger": "off",
     // Ignore specific Next.js route errors
     "@next/next/no-server-import-in-page": "off",
     "@next/next/no-typos": "off"
