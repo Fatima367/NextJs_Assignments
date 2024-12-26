@@ -13,6 +13,6 @@
     // Ignore specific Next.js route errors
     "@next/next/no-server-import-in-page": "off",
     "@next/next/no-typos": "off"
-  
-  }
+  },
+  "ignorePatterns": ["node_modules/", ".next/", "build/"]
 }
