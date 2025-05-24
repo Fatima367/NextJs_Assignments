@@ -3,7 +3,6 @@ import React from "react";
 
 function Card(props: any) {
   return (
-    <>
       <div className="flex items-center justify-center">
         <div className="bg-white max-w-md p-8 h-auto w-90px ring-2 ring-gray-200 
         shadow-lg flex">
@@ -25,7 +24,6 @@ function Card(props: any) {
           </div>
         </div>
       </div>
-    </>
   );
 }
 

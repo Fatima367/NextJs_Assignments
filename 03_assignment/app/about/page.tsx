@@ -5,7 +5,6 @@ import React from "react";
 function About() {
   const route = useRouter();
   return (
-    <>
       <div className="bg-sky-50 w-screen h-screen">
         <div className="mr-4 ml-4 mt-4">
           <h1 className="text-2xl font-bold">This is About Page</h1>
@@ -39,7 +38,6 @@ function About() {
           </div>
         </div>
       </div>
-    </>
   );
 }
 
