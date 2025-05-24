@@ -55,10 +55,10 @@ export default function Page() {
         fetchBooks();
         resetForm();
       } else {
-        console.error("Failed to add book:", await response.json());
+        console.log("Failed to add book:", await response.json());
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.log("Error:", error);
     }
   };
 
@@ -81,10 +81,10 @@ export default function Page() {
         fetchBooks();
         resetForm();
       } else {
-        console.error("Failed to edit book:", await response.json());
+        console.log("Failed to edit book:", await response.json());
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.log("Error:", error);
     }
   };
 
@@ -119,7 +119,7 @@ export default function Page() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
+    if (e.target.files) {
       const file = e.target.files[0];
       setImage(file);
       setCurrentImage(URL.createObjectURL(file)); // Generate a preview URL
