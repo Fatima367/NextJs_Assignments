@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-export default function Card(props : {name :string, rollno :number, day:string}) {
+export default function Card(props : Readonly<{name :string, rollno :number, day:string}>) {
   return (
     <div>
       <div className='w-max h-auto shadow-lg flex p-8 max-w-md ring-2 ring-cyan-200
