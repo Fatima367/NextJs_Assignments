@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import Card from "./components/card";
 
 /* Assignment 3 :
@@ -11,7 +10,6 @@ import Card from "./components/card";
 -Read about routing in NextJs
 */
 export default function Home() {
-  const route = useRouter();
   return (
       <div>
         <header className="bg-blue-600 font-bold text-white text-lg p-2 text-end">
