@@ -42,7 +42,21 @@ function Form() {
         });
       }
     } catch (error) {
-      alert("Submitting form failed!");
+      // Log the error details and provide a more informative alert.
+      console.error("Form submission failed:", error);
+
+      let errorMessage =
+        "Submitting form failed! Please check your network connection.";
+
+      // Axios error handling for bad HTTP status codes
+      if (axios.isAxiosError(error) && error.response) {
+        // If the server returned an error response (e.g., 404, 500)
+        errorMessage = `Server Error: ${
+          error.response.statusText || "Could not process request"
+        }.`;
+      }
+
+      alert(errorMessage);
     }
   };
 
