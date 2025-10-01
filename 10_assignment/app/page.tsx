@@ -104,8 +104,8 @@ export default function Page() {
     setCurrentImage(book.image);
     setImage(null); // Clear file input value for security
 
-  const formElement = document.getElementById("addbook");
-  formElement?.scrollIntoView({ behavior: "smooth" });
+    const formElement = document.getElementById("addbook");
+    formElement?.scrollIntoView({ behavior: "smooth" });
   };
 
   const resetForm = () => {
@@ -127,8 +127,10 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen p-6 font-serif bg-gradient-to-r from-rose-50 via-white 
-    to-rose-50 w-screen">
+    <div
+      className="min-h-screen p-6 font-serif bg-gradient-to-r from-rose-50 via-white 
+    to-rose-50 w-screen"
+    >
       <Navbar />
 
       <div className="max-w-5xl mx-auto bg-transparent p-8 rounded-lg mt-6">
@@ -189,8 +191,12 @@ export default function Page() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="block text-gray-700 mb-2">Title</label>
+              <label htmlFor="book-title" className="block text-gray-700 mb-2">
+                Title
+              </label>
               <input
+                id="book-title"
+                name="book-title"
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -200,8 +206,12 @@ export default function Page() {
               />
             </div>
             <div>
-              <label className="block text-gray-700 mb-2">Author</label>
+              <label htmlFor="book-author" className="block text-gray-700 mb-2">
+                Author
+              </label>
               <input
+                id="book-author"
+                name="book-author"
                 type="text"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
@@ -211,8 +221,12 @@ export default function Page() {
               />
             </div>
             <div>
-              <label className="block text-gray-700 mb-2">Genre</label>
+              <label htmlFor="book-genre" className="block text-gray-700 mb-2">
+                Genre
+              </label>
               <input
+                id="book-genre"
+                name="book-genre"
                 type="text"
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
@@ -222,8 +236,14 @@ export default function Page() {
               />
             </div>
             <div>
-              <label className="block text-gray-700 mb-2">Availability</label>
+              <label
+                htmlFor="availability-select"
+                className="block text-gray-700 mb-2"
+              >
+                Availability
+              </label>
               <select
+                id="availability-select"
                 value={available}
                 onChange={(e) => setAvailable(e.target.value)}
                 className="border border-gray-300 p-2 rounded w-full focus:outline-none 
@@ -235,10 +255,14 @@ export default function Page() {
               </select>
             </div>
             <div className="md:col-span-2 lg:col-span-4">
-              <label className="block text-gray-700 mb-2">
+              <label
+                htmlFor="book-cover-image"
+                className="block text-gray-700 mb-2"
+              >
                 Book Cover Image
               </label>
               <input
+                id="book-cover-image"
                 type="file"
                 accept="image/*"
                 onChange={handleFileChange}

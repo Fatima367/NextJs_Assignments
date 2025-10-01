@@ -86,15 +86,8 @@ export const updateBooks = (
 };
 
 export async function GET(req: Request, res: Response) {
-  try {
-    const books = getBooks();
-    return NextResponse.json({ message: "OK", books }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json(
-      { messaage: "Error, books not found" },
-      { status: 500 }
-    );
-  }
+  const books = getBooks();
+  return NextResponse.json({ message: "OK", books }, { status: 200 });
 }
 
 export async function POST(req: Request, res: Response) {
@@ -112,8 +105,18 @@ export async function POST(req: Request, res: Response) {
     addBooks(book);
     return NextResponse.json({ message: "OK", book }, { status: 201 });
   } catch (error) {
+    // Check if the error is likely a JSON parsing failure (client-side issue)
+    if (error instanceof Error && error.message.includes("JSON")) {
+      return NextResponse.json(
+        { message: "Invalid JSON format in request body" },
+        { status: 400 } // Bad Request is more appropriate for client-side input errors
+      );
+    }
+
+    // Handle all other errors (likely internal server issues from addBooks)
+    console.error("Failed to create book:", error); // Log the detailed error for debugging
     return NextResponse.json(
-      { messaage: "Error, something went wrong" },
+      { message: "Database Error: Failed to add book." }, // More specific server-side error message
       { status: 500 }
     );
   }
