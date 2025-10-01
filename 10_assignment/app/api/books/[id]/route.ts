@@ -5,7 +5,7 @@ export async function GET(req: Request) {
   try {
     const id = req.url.split("books/")[1];
     console.log(id);
-    const book = (id);
+    const book = id;
 
     if (!book) {
       return NextResponse.json({ message: "ERROR" }, { status: 404 });
@@ -24,10 +24,10 @@ export async function PUT(req: Request) {
     const { title, author, genre, available, image } = await req.json();
 
     // Using URL to extract ID safely
-    const url = new URL(req.url)
+    const url = new URL(req.url);
     const id = url.pathname.split("/").pop();
 
-    await updateBooks(id, title, author, genre, available, image);
+    updateBooks(id, title, author, genre, available, image);
 
     return NextResponse.json({ message: "OK" }, { status: 200 });
   } catch (error) {
